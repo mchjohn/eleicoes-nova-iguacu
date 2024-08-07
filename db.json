@@ -19,32 +19,62 @@
   "mayoral_candidates": [
     {
       "id": "1",
-      "name": "José D Silva",
-      "votes": 100,
-      "picture": "http://github.com/jose.png",
-      "about": "Político corrupto sem vergonha.",
+      "name": "Aluísio Gama",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035506/eleicoes-nova-iguacu-2024/aluisio-gama_oyao94.png",
+      "about": "Aluísio Gama de Souza, de 79 anos, é formado em Direito, Pedagogia e Geografia e Estudos Sociais. O pré-candidato do PSB foi deputado estadual, secretário do governo, prefeito de Nova Iguaçu e presidente do TCE-RJ. Eleito deputado pela Aleg em 1974, serviu até a fusão dos estados em 1975. Em 1978, foi eleito deputado da Alerj pelo MDB, com mandato até 1983. Foi secretário de Agricultura no governo Brizola e prefeito de Nova Iguaçu de 1989 a 1992. Em 1993, tornou-se conselheiro do TCE-RJ, presidindo-o de 1997 a 2000. Aposentou-se em 2015 e foi investigado na Operação Quinto do Ouro em 2017, mas teve a prisão temporária revogada.",
       "political_party": {
-        "name": "PSOL"
+        "name": "PSB"
       }
     },
     {
       "id": "2",
-      "name": "Wagner D'Silva",
-      "votes": 100,
-      "picture": "http://github.com/wagner.png",
-      "about": "Político corrupto sem vergonha.",
+      "name": "Clébio Lopes Jacaré",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035507/eleicoes-nova-iguacu-2024/clebio-lopes-jacare_ipbas7.png",
+      "about": "Clébio Lopes Pereira, conhecido como Jacaré, de 55 anos, é presidente do partido União Brasil em Nova Iguaçu e empresário nos setores de comércio, saúde e transportes, com investimentos também na pecuária uruguaia. Iniciou sua carreira política em 2018 pelo PSL, ficando como suplente para deputado federal. Em 2022, pelo União Brasil, novamente ficou como suplente com 36.453 votos. Durante a campanha de 2022, foi acusado de chefiar um esquema de corrupção na Prefeitura de Itatiaia e foi preso na Operação Apanthropía, mas foi solto para aguardar julgamento. Sua defesa negou envolvimento em contratos fraudulentos.",
       "political_party": {
-        "name": "PSOL"
+        "name": "União Brasil"
       }
     },
     {
       "id": "3",
-      "name": "Marcos Almeida",
-      "votes": 100,
-      "picture": "http://github.com/marcos.png",
-      "about": "Político corrupto sem vergonha.",
+      "name": "Dudu Reina",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035506/eleicoes-nova-iguacu-2024/dudu-reina_bnd9zp.png",
+      "about": "Eduardo Reina Gomes de Oliveira, de 44 anos, conhecido como Duda Reina, é o atual presidente da Câmara de Vereadores de Nova Iguaçu e planeja disputar sua primeira eleição majoritária. Nascido em Nova Iguaçu, ele iniciou sua carreira política em 2020 pelo PDT, recebendo 8.167 votos e tornando-se o terceiro mais votado no município. No seu primeiro mandato, assumiu a presidência do legislativo municipal. Além disso, foi subsecretário de Obras e de Governo da Prefeitura de Nova Iguaçu. Duda é o candidato da situação, indicado pelo atual prefeito Rogerio Lisboa, que está concluindo seu terceiro mandato.",
       "political_party": {
-        "name": "PSOL"
+        "name": "Progressistas"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Iza Dutra",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035507/eleicoes-nova-iguacu-2024/iza-dutra_ujjt95.png",
+      "about": "Izabela Santos de Oliveira Dutra, de 36 anos, conhecida como Iza Dutra, é sargento da Polícia Militar do Estado do Rio de Janeiro e engenheira civil. Possui especialização em Segurança Pública e Políticas Públicas, além de um mestrado em Políticas Públicas pela Uerj. Filiada ao Partido Novo, Iza disputou sua primeira eleição em 2022 pelo União Brasil, tentando uma vaga na Alerj, mas terminou como suplente com 1.315 votos.",
+      "political_party": {
+        "name": "Novo"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Leonardo Mazzutti",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035507/eleicoes-nova-iguacu-2024/leonardo-mazzutti_wcziqp.png",
+      "about": "Leonardo Mazzutti Sobral, de 44 anos, nasceu no Rio de Janeiro e desenvolveu sua vida acadêmica e profissional em Nova Iguaçu. Advogado formado na Unig, é especializado em Direito Público e pós-graduado em Direito Eleitoral pela PUC-MG. Sócio fundador de um escritório de advocacia em Nova Iguaçu, é presidente da Comissão de Direito Eleitoral da Anacrim-RJ. Sua primeira experiência política foi em 2008, quando se candidatou a vereador de Nova Iguaçu pelo Partido da República (PR), atual Partido Liberal (PL), e terminou como suplente com 310 votos.",
+      "political_party": {
+        "name": "Rede"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Tuninho da Padaria",
+      "votes": 0,
+      "picture": "https://res.cloudinary.com/sk84all/image/upload/v1723035507/eleicoes-nova-iguacu-2024/tuninho-da-padaria_kgrb0s.png",
+      "about": "Antônio Araújo Ferreira, conhecido como Tuninho da Padaria, de 60 anos, é empresário e nasceu em Nova Iguaçu. Durante a gestão de Lindbergh Farias como prefeito de Nova Iguaçu (2005-2010), Tuninho foi secretário de Transportes, secretário de Governo e presidente da Emlurb. Em 2004, candidatou-se pela primeira vez a vereador, terminando como suplente. Em 2014, pelo PCdoB, tentou se eleger deputado estadual, mas novamente ficou como suplente com 9.837 votos.",
+      "political_party": {
+        "name": "PT"
       }
     }
   ],

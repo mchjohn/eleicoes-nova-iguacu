@@ -15,10 +15,12 @@ type CardPrefeitoProps = {
 }
 
 export function CardPrefeito({ candidate }: CardPrefeitoProps) {
+
+
   return (
-    <Card>
+    <Card className="text-stone-900">
       <CardHeader className="items-center">
-        <Avatar className="rounded-sm size-40">
+        <Avatar className="rounded-sm size-48">
           <AvatarImage src={candidate?.picture} />
           <AvatarFallback>{candidate?.name}</AvatarFallback>
         </Avatar>
@@ -27,8 +29,8 @@ export function CardPrefeito({ candidate }: CardPrefeitoProps) {
         <CardDescription className="text-zinc-700">Partido <span className="font-semibold">{candidate?.political_party.name}</span></CardDescription>
       </CardHeader>
 
-      <CardContent className="items-center text-center">
-        <p>{candidate?.about}</p>
+      <CardContent className="items-center text-justify p-2">
+        <p className="max-h-64 overflow-auto">{candidate?.about}</p>
       </CardContent>
 
       <CardFooter className="flex gap-4 justify-center">

@@ -4,10 +4,10 @@ import { CardPrefeito } from "@/components/CardPrefeito";
 
 export function ListCandidates({ candidates }: { candidates: ICandidate[] }) {
   return (
-    <>
+    <div className="space-y-2">
       {candidates?.map((candidate) => (
         <CardPrefeito key={candidate.id} candidate={candidate} />
       ))}
-    </>
+    </div>
   )
 }

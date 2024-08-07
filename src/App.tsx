@@ -9,8 +9,8 @@ export function App() {
   const { data: councilorCandidates } = useGetCouncilorCandidates();
 
   return (
-    <main className="flex min-h-screen flex-col p-5 gap-6">
-      <h2 className={`text-4xl text-orange-500`}>Nova Iguaçu Eleições 2024</h2>
+    <main className="flex min-h-screen flex-col p-5 gap-6 text-stone-900">
+      <h2 className={`text-xl text-orange-500`}>Nova Iguaçu Eleições 2024</h2>
 
       <Tabs defaultValue="prefeito">
         <TabsList className="grid w-full grid-cols-2">
