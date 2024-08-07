@@ -25,7 +25,7 @@ export function App() {
         </TabsContent>
 
         <TabsContent value="vereador">
-          <p className="font-medium">2500 pessoas já votaram.</p>
+          <p className="font-medium mb-6 mt-4">2500 pessoas já votaram.</p>
           <ListCandidates candidates={councilorCandidates}  />
         </TabsContent>
       </Tabs>
