@@ -16,7 +16,7 @@
       "picture": "http://github.com/john.png"
     }
   ],
-  "candidates": [
+  "mayoral_candidates": [
     {
       "id": "1",
       "name": "José D Silva",
@@ -42,6 +42,38 @@
       "name": "Marcos Almeida",
       "votes": 100,
       "picture": "http://github.com/marcos.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    }
+  ],
+  "councilor_candidates": [
+    {
+      "id": "1",
+      "name": "Steve Smith",
+      "votes": 100,
+      "picture": "http://github.com/ardalis.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Daishi Kato",
+      "votes": 100,
+      "picture": "http://github.com/dai-shi.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Hyeonwoo Jo",
+      "votes": 100,
+      "picture": "http://github.com/dokdo2013.png",
       "about": "Político corrupto sem vergonha.",
       "political_party": {
         "name": "PSOL"

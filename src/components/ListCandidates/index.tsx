@@ -1,9 +1,8 @@
+import { ICandidate } from "@/interfaces/candidate";
+
 import { CardPrefeito } from "@/components/CardPrefeito";
-import { useGetCandidates } from "@/queries/useGetCandidates";
 
-export function ListCandidates() {
-  const { data: candidates } = useGetCandidates();
-
+export function ListCandidates({ candidates }: { candidates: ICandidate[] }) {
   return (
     <>
       {candidates?.map((candidate) => (

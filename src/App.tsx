@@ -1,10 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { ListCandidates } from "./components/ListCandidates";
 
+import { useGetCouncilorCandidates, useGetMayoralCandidates } from "./queries/useGetCandidates";
+
 export function App() {
+  const { data: mayoralCandidates } = useGetMayoralCandidates();
+  const { data: councilorCandidates } = useGetCouncilorCandidates();
+
   return (
     <main className="flex min-h-screen flex-col p-5 gap-6">
-      <h2 className={`text-6xl text-orange-500`}>Nova Iguaçu Eleições 2024</h2>
+      <h2 className={`text-4xl text-orange-500`}>Nova Iguaçu Eleições 2024</h2>
 
       <Tabs defaultValue="prefeito">
         <TabsList className="grid w-full grid-cols-2">
@@ -15,12 +21,12 @@ export function App() {
         <TabsContent value="prefeito">
           <p className="font-medium mb-6 mt-4">1500 pessoas já votaram.</p>
 
-          <ListCandidates />
+          <ListCandidates candidates={mayoralCandidates} />
         </TabsContent>
 
         <TabsContent value="vereador">
           <p className="font-medium">2500 pessoas já votaram.</p>
-          Vereadores
+          <ListCandidates candidates={councilorCandidates}  />
         </TabsContent>
       </Tabs>
     </main>

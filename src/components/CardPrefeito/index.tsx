@@ -18,7 +18,7 @@ export function CardPrefeito({ candidate }: CardPrefeitoProps) {
   return (
     <Card>
       <CardHeader className="items-center">
-        <Avatar className="rounded-sm size-32">
+        <Avatar className="rounded-sm size-40">
           <AvatarImage src={candidate?.picture} />
           <AvatarFallback>{candidate?.name}</AvatarFallback>
         </Avatar>
