@@ -15,10 +15,8 @@ type CardPrefeitoProps = {
 }
 
 export function CardPrefeito({ candidate }: CardPrefeitoProps) {
-
-
   return (
-    <Card className="text-stone-900">
+    <Card className="text-stone-900 md:w-96 md:h-[722px]">
       <CardHeader className="items-center">
         <Avatar className="rounded-sm size-48">
           <AvatarImage src={candidate?.picture} />
@@ -30,10 +28,10 @@ export function CardPrefeito({ candidate }: CardPrefeitoProps) {
       </CardHeader>
 
       <CardContent className="items-center text-justify p-2">
-        <p className="max-h-64 overflow-auto">{candidate?.about}</p>
+        <p className="max-h-64 overflow-auto md:max-h-fit md:h-[340px]">{candidate?.about}</p>
       </CardContent>
 
-      <CardFooter className="flex gap-4 justify-center">
+      <CardFooter className="flex gap-4 justify-center md:mt-auto">
       <Button variant="outline">Ver mais</Button>
       <Button>Votar</Button>
       </CardFooter>
