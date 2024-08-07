@@ -1,5 +1,5 @@
-import { CardPrefeito } from "@/components/CardPrefeito";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ListCandidates } from "./components/ListCandidates";
 
 export function App() {
   return (
@@ -15,7 +15,7 @@ export function App() {
         <TabsContent value="prefeito">
           <p className="font-medium mb-6 mt-4">1500 pessoas já votaram.</p>
 
-          <CardPrefeito />
+          <ListCandidates />
         </TabsContent>
 
         <TabsContent value="vereador">

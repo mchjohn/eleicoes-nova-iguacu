@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,23 +7,28 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
+import { ICandidate } from "@/interfaces/candidate";
 
-export function CardPrefeito() {
+type CardPrefeitoProps = {
+  candidate: ICandidate;
+}
+
+export function CardPrefeito({ candidate }: CardPrefeitoProps) {
   return (
     <Card>
       <CardHeader className="items-center">
         <Avatar className="rounded-sm size-32">
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarImage src={candidate?.picture} />
+          <AvatarFallback>{candidate?.name}</AvatarFallback>
         </Avatar>
 
-        <CardTitle>José da Silva</CardTitle>
-        <CardDescription className="text-zinc-700">Partido <span className="font-semibold">PSOL</span></CardDescription>
+        <CardTitle>{candidate?.name}</CardTitle>
+        <CardDescription className="text-zinc-700">Partido <span className="font-semibold">{candidate?.political_party.name}</span></CardDescription>
       </CardHeader>
 
       <CardContent className="items-center text-center">
-        <p>Card Content</p>
+        <p>{candidate?.about}</p>
       </CardContent>
 
       <CardFooter className="flex gap-4 justify-center">

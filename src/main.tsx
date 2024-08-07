@@ -5,8 +5,12 @@ import '@/styles/index.css'
 
 import { App } from './App'
 
+import { GlobalProvider } from './providers'
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
   </React.StrictMode>,
 )
