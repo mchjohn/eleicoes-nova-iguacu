@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Lucas José",
+      "picture": "http://github.com/lucas.png"
+    },
+    {
+      "id": "2",
+      "name": "Cristiane D'Silva",
+      "picture": "http://github.com/cristiane.png"
+    },
+    {
+      "id": "3",
+      "name": "John Almeida",
+      "picture": "http://github.com/john.png"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "1",
+      "name": "José D Silva",
+      "votes": 100,
+      "picture": "http://github.com/jose.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Wagner D'Silva",
+      "votes": 100,
+      "picture": "http://github.com/wagner.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Marcos Almeida",
+      "votes": 100,
+      "picture": "http://github.com/marcos.png",
+      "about": "Político corrupto sem vergonha.",
+      "political_party": {
+        "name": "PSOL"
+      }
+    }
+  ]
+}
