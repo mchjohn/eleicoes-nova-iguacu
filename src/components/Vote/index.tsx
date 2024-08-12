@@ -1,9 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { ListCandidates } from "@/components/ListCandidates";
-
-import { Button } from "@/components/ui/button";
 import { useGetCouncilorCandidates, useGetMayoralCandidates } from "@/queries/useGetCandidates";
+
+import { AmountVote } from "@/components/AmountVotes";
+import { ListCandidates } from "@/components/ListCandidates";
+import { Button } from "@/components/ui/button";
 
 export function Vote() {
   const { data: mayoralCandidates } = useGetMayoralCandidates();
@@ -17,7 +18,7 @@ export function Vote() {
       </TabsList>
 
       <TabsContent value="prefeito">
-        <p className="font-medium mt-4 text-blue-900 mb-4">1500 pessoas já votaram.</p>
+        <AmountVote candidates={mayoralCandidates} />
 
         <ListCandidates candidates={mayoralCandidates} />
 
@@ -28,7 +29,7 @@ export function Vote() {
       </TabsContent>
 
       <TabsContent value="vereador">
-        <p className="font-medium mt-4 text-blue-900 mb-4">2500 pessoas já votaram.</p>
+        <AmountVote candidates={councilorCandidates} />
 
         <ListCandidates candidates={councilorCandidates} />
 
