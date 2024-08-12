@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/card";
 import { ICandidate } from "@/interfaces/candidate";
 
-type CardPrefeitoProps = {
+type CardCandidateProps = {
   candidate: ICandidate;
 }
 
-export function CardPrefeito({ candidate }: CardPrefeitoProps) {
+export function CardCandidate({ candidate }: CardCandidateProps) {
   return (
     <Card className="text-stone-900 md:w-96 md:h-[722px]">
       <CardHeader className="items-center">

@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { ListCandidates } from "@/components/ListCandidates";
+import { ListCandidatesMin } from "@/components/ListCandidatesMin";
 
 import { AmountVote } from "@/components/AmountVotes";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,7 @@ export function SeeVote() {
       <TabsContent value="prefeito">
         <AmountVote candidates={mayoralCandidates} />
 
-        <ListCandidates candidates={mayoralCandidates} />
+        <ListCandidatesMin candidates={mayoralCandidates} />
 
         <div className="flex gap-4 mb-4 mt-10 justify-center">
           <Button variant="secondary">Não vou votar</Button>
@@ -31,7 +31,7 @@ export function SeeVote() {
       <TabsContent value="vereador">
         <AmountVote candidates={councilorCandidates} />
 
-        <ListCandidates candidates={councilorCandidates} />
+        <ListCandidatesMin candidates={councilorCandidates} />
 
         <div className="flex gap-4 mb-4 mt-10 justify-center">
           <Button variant="secondary">Não vou votar</Button>
