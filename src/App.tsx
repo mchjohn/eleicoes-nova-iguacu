@@ -1,32 +1,24 @@
+import { SeeVote } from "@/components/SeeVote";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { ListCandidates } from "./components/ListCandidates";
-
-import { useGetCouncilorCandidates, useGetMayoralCandidates } from "./queries/useGetCandidates";
+import { Vote } from "@/components/Vote";
 
 export function App() {
-  const { data: mayoralCandidates } = useGetMayoralCandidates();
-  const { data: councilorCandidates } = useGetCouncilorCandidates();
-
   return (
     <main className="flex min-h-screen flex-col p-5 gap-6 text-stone-900">
-      <h2 className={`text-xl text-orange-500`}>Nova Iguaçu Eleições 2024</h2>
+      <h2 className={`text-xl text-orange-500`}>Pesquisa eleitoral Nova Iguaçu 2024</h2>
 
-      <Tabs defaultValue="prefeito">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="prefeito">Prefeito</TabsTrigger>
-          <TabsTrigger value="vereador">Vereador</TabsTrigger>
+      <Tabs  defaultValue="vote">
+        <TabsList className="grid w-full grid-cols-2 ">
+          <TabsTrigger value="vote">Votar</TabsTrigger>
+          <TabsTrigger value="see-vote">Acompanhar Votos</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="prefeito">
-          <p className="font-medium mb-6 mt-4">1500 pessoas já votaram.</p>
-
-          <ListCandidates candidates={mayoralCandidates} />
+        <TabsContent value="vote">
+          <Vote />
         </TabsContent>
 
-        <TabsContent value="vereador">
-          <p className="font-medium mb-6 mt-4">2500 pessoas já votaram.</p>
-          <ListCandidates candidates={councilorCandidates}  />
+        <TabsContent value="see-vote">
+          <SeeVote />
         </TabsContent>
       </Tabs>
     </main>
