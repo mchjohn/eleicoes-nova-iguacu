@@ -8,7 +8,7 @@ type CardCandidateMinProps = {
 
 export function CardCandidateMin({ candidate }: CardCandidateMinProps) {
   return (
-    <div className="p-3 text-stone-900 border rounded-md md:w-96 md:h-[722px]">
+    <div className="p-3 text-stone-900 border rounded-md w-full md:w-96">
       <div className="flex flex-row gap-2">
         <Avatar className="rounded-sm size-24">
           <AvatarImage src={candidate?.picture} />
