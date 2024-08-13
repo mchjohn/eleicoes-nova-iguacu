@@ -1,9 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { ListCandidatesMin } from "@/components/ListCandidatesMin";
+import { useGetCouncilorCandidates, useGetMayoralCandidates } from "@/queries/useGetCandidates";
 
 import { AmountVote } from "@/components/AmountVotes";
-import { useGetCouncilorCandidates, useGetMayoralCandidates } from "@/queries/useGetCandidates";
+import { ListCandidatesMin } from "@/components/ListCandidatesMin";
+import { MoreDetails } from './MoreDetails';
 
 export function SeeVote() {
   const { data: mayoralCandidates } = useGetMayoralCandidates();
@@ -17,13 +18,17 @@ export function SeeVote() {
       </TabsList>
 
       <TabsContent value="prefeito">
-        <AmountVote candidates={mayoralCandidates} />
+        <MoreDetails>
+          <AmountVote candidates={mayoralCandidates} />
+        </MoreDetails>
 
         <ListCandidatesMin candidates={mayoralCandidates} />
       </TabsContent>
 
       <TabsContent value="vereador">
-        <AmountVote candidates={councilorCandidates} />
+        <MoreDetails>
+          <AmountVote candidates={mayoralCandidates} />
+        </MoreDetails>
 
         <ListCandidatesMin candidates={councilorCandidates} />
       </TabsContent>
