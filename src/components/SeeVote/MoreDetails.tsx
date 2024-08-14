@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Dashboard } from "../Dashboard";
 
 export function MoreDetails({ children }: { children: React.ReactNode }) {
   const [showAmountVote, setShowAmountVote] = useState(true);
@@ -21,11 +22,10 @@ export function MoreDetails({ children }: { children: React.ReactNode }) {
           Ver {`${showAmountVote ? "mais" : "menos"}`}
         </AccordionTrigger>
 
-        {children}
+        {showAmountVote && children}
 
         <AccordionContent>
-          <p>155 pessoas vão votar nulo</p>
-          <p>200 pessoas não vão votar</p>
+          <Dashboard />
         </AccordionContent>
       </AccordionItem>
     </Accordion>
