@@ -20,7 +20,7 @@ export function Vote() {
       <TabsContent value="prefeito">
         {mayors && mayors.length > 0 ? (
           <>
-            <AmountVote candidates={mayors} />
+            <AmountVote />
 
             <ListCandidates candidates={mayors} isLoading={isLoadingMayors} />
 
@@ -35,7 +35,7 @@ export function Vote() {
       </TabsContent>
 
       <TabsContent value="vereador">
-        <AmountVote candidates={councilorCandidates} />
+        <AmountVote />
 
         <ListCandidates candidates={councilorCandidates} />
 

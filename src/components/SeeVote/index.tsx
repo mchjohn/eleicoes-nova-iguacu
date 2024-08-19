@@ -19,18 +19,18 @@ export function SeeVote() {
 
       <TabsContent value="prefeito">
         <MoreDetails>
-          <AmountVote candidates={mayoralCandidates} />
+          <AmountVote />
         </MoreDetails>
 
-        <ListCandidatesMin candidates={mayoralCandidates} />
+        {mayoralCandidates && <ListCandidatesMin candidates={mayoralCandidates} />}
       </TabsContent>
 
       <TabsContent value="vereador">
         <MoreDetails>
-          <AmountVote candidates={mayoralCandidates} />
+          <AmountVote />
         </MoreDetails>
 
-        <ListCandidatesMin candidates={councilorCandidates} />
+        {councilorCandidates && <ListCandidatesMin candidates={councilorCandidates} />}
       </TabsContent>
     </Tabs>
   )

@@ -1,10 +1,10 @@
-"use client"
-
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { AuthProvider } from "@/contexts/AuthContext";
 import { queryClient } from "@/services/reactQuery/query-client";
+
+import { AuthProvider } from "@/contexts/AuthContext";
+import { MayorsSurveyResultsProvider } from "@/contexts/MayorsSurveyResultsContext";
 
 export function GlobalProvider({
   children,
@@ -14,7 +14,9 @@ export function GlobalProvider({
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        {children}
+        <MayorsSurveyResultsProvider>
+          {children}
+        </MayorsSurveyResultsProvider>
 
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

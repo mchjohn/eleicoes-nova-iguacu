@@ -16,7 +16,7 @@ export function MoreDetails({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <Accordion type="single" collapsible className="mb-10 text-zinc-600">
+    <Accordion type="single" collapsible className="text-zinc-600">
       <AccordionItem value="item-1">
         <AccordionTrigger onClick={toggleShowAmountVote}>
           Ver {`${showAmountVote ? "mais" : "menos"}`}

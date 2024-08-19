@@ -17,8 +17,8 @@ export function CardCandidateMin({ candidate }: CardCandidateMinProps) {
 
         <div>
           <p className="text-xl font-medium">{candidate?.name}</p>
-          <p className="text-zinc-700 text-base">Partido <span className="font-semibold">{candidate?.political_party.name}</span></p>
-          <p className="text-zinc-700 text-base"><span className="font-semibold">{candidate?.votes}</span> votos</p>
+          <p className="text-zinc-700 text-base">Partido <span className="font-semibold">{candidate?.political_party}</span></p>
+          <p className="text-zinc-700 text-base"><span className="font-semibold">{candidate?.amount_votes}</span> votos</p>
         </div>
       </div>
     </div>

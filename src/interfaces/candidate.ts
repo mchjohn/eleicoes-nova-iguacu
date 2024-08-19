@@ -1,7 +1,7 @@
 export interface ICandidate {
   id: string
   name: string
-  votes: number
+  amount_votes: number
   picture: string
   about: string
   political_party: string

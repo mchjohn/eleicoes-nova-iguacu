@@ -10,7 +10,7 @@ interface ListCandidatesProps {
 
 export function ListCandidates({ isLoading, candidates }: ListCandidatesProps) {
   return (
-    <div className="space-y-2 md:flex md:flex-wrap gap-4">
+    <div className="space-y-2 md:flex md:flex-wrap gap-4 mt-4">
       {isLoading ? (
           <SkeletonCard />
         ) : (
