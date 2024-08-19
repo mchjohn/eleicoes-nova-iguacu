@@ -24,7 +24,7 @@ export function CardCandidate({ candidate }: CardCandidateProps) {
         </Avatar>
 
         <CardTitle>{candidate?.name}</CardTitle>
-        <CardDescription className="text-zinc-700">Partido <span className="font-semibold">{candidate?.political_party.name}</span></CardDescription>
+        <CardDescription className="text-zinc-700">Partido <span className="font-semibold">{candidate?.political_party}</span></CardDescription>
       </CardHeader>
 
       <CardContent className="items-center text-justify p-2">

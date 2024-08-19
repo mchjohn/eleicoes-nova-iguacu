@@ -7,7 +7,7 @@ import { ListCandidates } from "@/components/ListCandidates";
 import { Button } from "@/components/ui/button";
 
 export function Vote() {
-  const { data: mayoralCandidates } = useGetMayoralCandidates();
+  const { data: mayors, isLoading: isLoadingMayors } = useGetMayoralCandidates();
   const { data: councilorCandidates } = useGetCouncilorCandidates();
 
   return (
@@ -18,14 +18,20 @@ export function Vote() {
       </TabsList>
 
       <TabsContent value="prefeito">
-        <AmountVote candidates={mayoralCandidates} />
+        {mayors && mayors.length > 0 ? (
+          <>
+            <AmountVote candidates={mayors} />
 
-        <ListCandidates candidates={mayoralCandidates} />
+            <ListCandidates candidates={mayors} isLoading={isLoadingMayors} />
 
-        <div className="flex gap-4 mb-4 mt-10 justify-center">
-          <Button variant="secondary">Não vou votar</Button>
-          <Button variant="secondary">Vou votar nulo</Button>
-        </div>
+            <div className="flex gap-4 mb-4 mt-10 justify-center">
+              <Button variant="secondary">Não vou votar</Button>
+              <Button variant="secondary">Vou votar nulo</Button>
+            </div>
+          </>
+        ) : (
+          <p className="text-zinc-600 text-lg mt-72 text-center">Nenhum candidato encontrado</p>
+        )}
       </TabsContent>
 
       <TabsContent value="vereador">

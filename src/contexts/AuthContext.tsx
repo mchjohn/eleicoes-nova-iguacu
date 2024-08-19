@@ -7,7 +7,7 @@ import {
 
 import { IUser } from '@/interfaces/user';
 
-import { supabase } from '@/services/supabase';
+import { supabase } from '@/services/supabase/config';
 import { errorMessage } from '@/services/supabase/errors/signUp';
 
 interface IAuthContextStates {

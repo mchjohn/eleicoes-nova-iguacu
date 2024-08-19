@@ -4,7 +4,5 @@ export interface ICandidate {
   votes: number
   picture: string
   about: string
-  political_party: {
-    name: string
-  }
+  political_party: string
 }
