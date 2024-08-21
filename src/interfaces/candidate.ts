@@ -1,5 +1,5 @@
 export interface ICandidate {
-  id: string
+  id: number
   name: string
   amount_votes: number
   picture: string
