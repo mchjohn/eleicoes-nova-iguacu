@@ -51,7 +51,7 @@ export function CardCandidate({ candidate }: CardCandidateProps) {
         <Button variant="outline" disabled={isPending}>Ver mais</Button>
         <Button
           disabled={isPending}
-          onClick={() => mutateAsync(candidate.id)}
+          onClick={() => mutateAsync({ id: candidate.id })}
         >
           {isPending ? (
             <>

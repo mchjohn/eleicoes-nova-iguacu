@@ -5,10 +5,15 @@ import { MAYORAL_CANDIDATES, MAYORS_SURVEY_RESULTS } from '@/constants/queryKeys
 import { queryClient } from "@/services/reactQuery/query-client";
 import { updateMayorVote } from "@/services/supabase/queries/mayors_votes";
 
+type Props = {
+  id: number;
+  oldId?: number;
+}
+
 export function useUpdateMayorVote() {
   return useMutation({
-    mutationFn: (id: number) => {
-      return updateMayorVote(id);
+    mutationFn: (data: Props) => {
+      return updateMayorVote(data.id, data.oldId);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey: [MAYORAL_CANDIDATES]});
