@@ -1,7 +1,7 @@
 import { BiLoaderCircle } from "react-icons/bi";
 
 import { ICandidate } from "@/interfaces/candidate";
-import { useUpdateMayorVote } from "@/mutations/useUpdateMayorVote";
+import { VotedType } from "@/interfaces/user";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -15,12 +15,13 @@ import {
 } from "@/components/ui/card";
 
 type CardCandidateProps = {
+  isLoading: boolean
   candidate: ICandidate;
+  currentVote?: VotedType;
+  handleVote: (newVote: number) => void;
 }
 
-export function CardCandidate({ candidate }: CardCandidateProps) {
-  const { mutateAsync, isPending } = useUpdateMayorVote();
-
+export function CardCandidate({ isLoading, candidate, currentVote, handleVote }: CardCandidateProps) {
   return (
     <Card className="text-stone-900 md:w-96 md:h-[722px]">
       <CardHeader className="items-center">
@@ -48,12 +49,12 @@ export function CardCandidate({ candidate }: CardCandidateProps) {
       </CardContent>
 
       <CardFooter className="flex gap-4 justify-center md:mt-auto">
-        <Button variant="outline" disabled={isPending}>Ver mais</Button>
+        <Button variant="outline" disabled={isLoading}>Ver mais</Button>
         <Button
-          disabled={isPending}
-          onClick={() => mutateAsync({ id: candidate.id })}
+          disabled={isLoading || currentVote === candidate.id}
+          onClick={() => handleVote(candidate.id)}
         >
-          {isPending ? (
+          {isLoading ? (
             <>
               <BiLoaderCircle className="mr-2 h-4 w-4 animate-spin" />
               Votando...

@@ -2,69 +2,33 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useState,
 } from 'react';
 
 import { IUser } from '@/interfaces/user';
 
-import { supabase } from '@/services/supabase/config';
-import { errorMessage } from '@/services/supabase/errors/signUp';
+import { useGetUser } from '@/queries/useGetUser';
 
 interface IAuthContextStates {
   user: IUser | null;
   isSignedIn: boolean;
 }
 
-interface IAuthContextActions {
-  signUp: (data: any) => void;
-  signIn: (data: any) => void;
-  signOut: () => Promise<void>;
-}
-
 const AuthContext = createContext(
-  {} as IAuthContextStates & IAuthContextActions,
+  {} as IAuthContextStates,
 );
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<IUser | null>(null);
-  const [isSignedIn, setIsSignedInUser] = useState(false);
-
-  async function signUp(data: any) {
-    const { email, password } = data;
-  }
-
-  async function signIn({ email, password }: any) {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: 'http://localhost:5173/sign-in',
-      },
-    });
-
-    console.log({ data });
-
-    console.log('MESSAGE', error?.message);
-    console.log('STATUS', error?.status);
-
-    const message = errorMessage(String(error?.status));
-
-    if (error) throw new Error(message);
-  }
-
-  async function signOut() {
-    setUser(null);
-    setIsSignedInUser(false);
-  }
+  const { data, isLoading } = useGetUser();
 
   return (
     <AuthContext.Provider
       value={{
-        user,
-        isSignedIn,
-        signUp,
-        signIn,
-        signOut,
+        user: data ?
+          {
+            ...data,
+            current_vote: Number(data?.current_vote) > 0 ? Number(data.current_vote) : data?.current_vote,
+          } : {} as IUser,
+        isSignedIn: isLoading,
       }}
     >
       {children}

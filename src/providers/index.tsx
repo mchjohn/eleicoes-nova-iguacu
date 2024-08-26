@@ -12,14 +12,14 @@ export function GlobalProvider({
   children: React.ReactNode;
 }>) {
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
         <MayorsSurveyResultsProvider>
           {children}
         </MayorsSurveyResultsProvider>
 
         <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </QueryClientProvider>
   );
 }

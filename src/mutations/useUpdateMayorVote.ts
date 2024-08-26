@@ -1,21 +1,24 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-import { MAYORAL_CANDIDATES, MAYORS_SURVEY_RESULTS } from '@/constants/queryKeys';
+import { MAYORAL_CANDIDATES, MAYORS_SURVEY_RESULTS, USER } from '@/constants/queryKeys';
+import { VotedType } from "@/interfaces/user";
+
 import { queryClient } from "@/services/reactQuery/query-client";
-import { updateMayorVote } from "@/services/supabase/queries/mayors_votes";
+import { updateMayorVote } from "@/services/supabase/mutates/mayors/updateVote";
 
 type Props = {
-  id: number;
-  oldId?: number;
+  currentVote?: VotedType,
+  newVote?: VotedType
 }
 
 export function useUpdateMayorVote() {
   return useMutation({
     mutationFn: (data: Props) => {
-      return updateMayorVote(data.id, data.oldId);
+      return updateMayorVote(data.currentVote, data.newVote);
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: [USER]});
       queryClient.invalidateQueries({queryKey: [MAYORAL_CANDIDATES]});
       queryClient.invalidateQueries({queryKey: [MAYORS_SURVEY_RESULTS]});
 

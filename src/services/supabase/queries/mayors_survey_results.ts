@@ -10,16 +10,3 @@ export async function getMayorsSurveyResults() {
 
   return mayors_survey_results[0] as ISurveyResult;
 }
-
-export async function increment() {
-  await supabase.rpc('increment_mayors_results', { row_id: 1 });
-}
-
-export async function decrement() {
-  await supabase.rpc('decrement_mayors_results', { row_id: 1 });
-}
-
-export const updateMayorsSurveyResults = {
-  increment,
-  decrement,
-}
