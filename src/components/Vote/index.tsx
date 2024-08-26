@@ -40,17 +40,18 @@ export function Vote() {
             <div className="flex gap-4 mb-4 mt-10 justify-center">
               <Button
                 variant="secondary"
-                disabled={isPending}
+                disabled={isPending || user?.current_vote === 'vote_no_vote'}
                 onClick={() => handleVote('vote_no_vote')}
               >
-                Não vou votar
+                Não votar
               </Button>
+
               <Button
                 variant="secondary"
-                disabled={isPending}
+                disabled={isPending || user?.current_vote === 'vote_null'}
                 onClick={() => handleVote('vote_null')}
               >
-                Vou votar nulo
+                Votar nulo
               </Button>
             </div>
           </>
