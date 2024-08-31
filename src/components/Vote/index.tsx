@@ -3,11 +3,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/contexts/AuthContext";
 import { useUpdateMayorVote } from "@/mutations/useUpdateMayorVote";
 import { useGetCouncilorCandidates, useGetMayoralCandidates } from "@/queries/useGetCandidates";
+import { updateUser } from "@/services/supabase/users/update";
 
 import { AmountVote } from "@/components/AmountVotes";
 import { ListCandidates } from "@/components/ListCandidates";
 import { Button } from "@/components/ui/button";
-import { updateCurrentVote } from "@/services/supabase/mutates/users/updateUser";
 
 export function Vote() {
   const { user } = useAuth();
@@ -15,12 +15,11 @@ export function Vote() {
   const { data: councilorCandidates } = useGetCouncilorCandidates();
   const { data: mayors, isLoading: isLoadingMayors } = useGetMayoralCandidates();
 
-  const handleVote = (newVote: 'vote_no_vote' | 'vote_null') => {
-    mutateAsync({ currentVote: user?.current_vote, newVote })
+  const handleVote = async (newVote: 'vote_no_vote' | 'vote_null') => {
+    await mutateAsync({ currentVote: user?.current_vote, newVote })
 
-    if (user?.id) {
-      updateCurrentVote(newVote, user.id);
-    }
+
+    await updateUser.updateCurrentVote(newVote);
   }
 
   return (

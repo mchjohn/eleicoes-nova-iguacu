@@ -44,34 +44,17 @@ class Auth {
     if (error) throw error;
   }
 
-  async stateChange() {
-    console.log('State change is called');
-
-    const { data } = supabase.auth.onAuthStateChange((event) => {
-      console.log('State change is called 2');
-
-      if (event === 'SIGNED_IN') {
-        console.log('User is signed in');
-      } else if (event === 'SIGNED_OUT') {
-        console.log('User is signed out');
-      } else if (event === 'USER_UPDATED') {
-        console.log('User is updated');
-      }
-    });
-
-    // call unsubscribe to remove the callback
-    data.subscription.unsubscribe();
-  }
-
   async userData() {
     const { data: { user } } = await supabase.auth.getUser();
 
+    if (!user) return null;
+
     const userData: IUser = {
-      id: user?.id,
-      name: user?.user_metadata.name,
-      email: user?.user_metadata.email,
-      phone: user?.user_metadata.phone,
-      current_vote: user?.user_metadata.current_vote,
+      id: user.id,
+      name: user.user_metadata.name,
+      email: user.user_metadata.email,
+      phone: user.user_metadata.phone,
+      current_vote: user.user_metadata.current_vote,
     }
 
     return userData;

@@ -3,7 +3,7 @@ import { ICandidate } from "@/interfaces/candidate";
 import { useAuth } from "@/contexts/AuthContext";
 
 import { useUpdateMayorVote } from "@/mutations/useUpdateMayorVote";
-import { updateCurrentVote } from "@/services/supabase/mutates/users/updateUser";
+import { useUpdateCurrentVote } from "@/mutations/useUser";
 
 import { CardCandidate } from "@/components/CardCandidate";
 import { SkeletonCard } from "../SkeletonCard";
@@ -16,13 +16,11 @@ interface ListCandidatesProps {
 export function ListCandidates({ isLoading, candidates }: ListCandidatesProps) {
   const { user } = useAuth();
   const { mutateAsync, isPending } = useUpdateMayorVote();
+  const { mutateAsync: updateUserCurrentVote, isPending: isPendingUpdateUserCurrentVote } = useUpdateCurrentVote();
 
-  const handleVote = (newVote: number) => {
-    if (user?.id) {
-      updateCurrentVote(newVote, user.id);
-    }
-
-    mutateAsync({ currentVote: user?.current_vote, newVote })
+  const handleVote = async (newVote: number) => {
+    await mutateAsync({ currentVote: user?.current_vote, newVote })
+    await updateUserCurrentVote(newVote);
   }
 
   return (
@@ -34,7 +32,7 @@ export function ListCandidates({ isLoading, candidates }: ListCandidatesProps) {
           <CardCandidate
             key={candidate.id}
             candidate={candidate}
-            isLoading={isPending}
+            isLoading={isPending || isPendingUpdateUserCurrentVote}
             handleVote={handleVote}
             currentVote={user?.current_vote}
             isAuthenticated={!!user?.id}
