@@ -5,12 +5,23 @@ import {
 } from 'react';
 
 import { IUser } from '@/interfaces/user';
+import { SignInData } from '@/validations/signInSchema';
+import { SignUpData } from '@/validations/signUpUserSchema';
 
-import { useGetUser } from '@/queries/useGetUser';
+import { useSignIn, useSignOut, useSignUp } from '@/mutations/useUser';
+import { useGetUserData } from '@/queries/useGetUser';
 
 interface IAuthContextStates {
   user: IUser | null;
-  isSignedIn: boolean;
+  loadings: {
+    isLoadingUser: boolean;
+    isPendingSignUp: boolean;
+    isPendingSignIn: boolean;
+    isPendingSignOut: boolean;
+  };
+  signOut: () => Promise<void>
+  handleSignUp: (params: SignUpData) => void;
+  handleSignIn: (params: SignInData) => void;
 }
 
 const AuthContext = createContext(
@@ -18,17 +29,32 @@ const AuthContext = createContext(
 );
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const { data, isLoading } = useGetUser();
+  const { data: user, isLoading: isLoadingUser } = useGetUserData();
+  const { mutateAsync: signIn, isPending: isPendingSignIn } = useSignIn();
+  const { mutateAsync: signUp, isPending: isPendingSignUp } = useSignUp();
+  const { mutateAsync: signOut, isPending: isPendingSignOut } = useSignOut();
+
+  const handleSignUp = (params: SignUpData) => {
+    signUp(params);
+  }
+
+  const handleSignIn = (params: SignInData) => {
+    signIn(params);
+  }
 
   return (
     <AuthContext.Provider
       value={{
-        user: data ?
-          {
-            ...data,
-            current_vote: Number(data?.current_vote) > 0 ? Number(data.current_vote) : data?.current_vote,
-          } : {} as IUser,
-        isSignedIn: isLoading,
+        user: user ?? null,
+        loadings: {
+          isLoadingUser,
+          isPendingSignUp,
+          isPendingSignIn,
+          isPendingSignOut,
+        } as const,
+        signOut,
+        handleSignUp,
+        handleSignIn,
       }}
     >
       {children}

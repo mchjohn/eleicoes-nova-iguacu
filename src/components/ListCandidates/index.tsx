@@ -28,18 +28,19 @@ export function ListCandidates({ isLoading, candidates }: ListCandidatesProps) {
   return (
     <div className="space-y-2 md:flex md:flex-wrap gap-4 mt-4">
       {isLoading ? (
-          <SkeletonCard />
-        ) : (
-          candidates?.map((candidate) => (
-            <CardCandidate
-              key={candidate.id}
-              candidate={candidate}
-              isLoading={isPending}
-              handleVote={handleVote}
-              currentVote={user?.current_vote}
-            />
-          ))
-        )}
+        <SkeletonCard />
+      ) : (
+        candidates?.map((candidate) => (
+          <CardCandidate
+            key={candidate.id}
+            candidate={candidate}
+            isLoading={isPending}
+            handleVote={handleVote}
+            currentVote={user?.current_vote}
+            isAuthenticated={!!user?.id}
+          />
+        ))
+      )}
     </div>
   )
 }

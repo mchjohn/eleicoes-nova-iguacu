@@ -1,8 +1,9 @@
 export type VotedType = number | 'vote_null' | 'vote_no_vote';
 
 export interface IUser {
-  id: number;
+  id: string;
   name: string;
-  email: string | null;
+  email: string;
+  phone: string;
   current_vote: VotedType;
 }

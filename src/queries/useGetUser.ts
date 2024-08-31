@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { USER } from '@/constants/queryKeys';
-import { getUser } from '@/services/supabase/queries/users/users';
+import { auth } from '@/services/supabase/users/auth';
 
-export function useGetUser() {
+export function useGetUserData() {
   const query = useQuery({
     queryKey: [USER],
-    queryFn: () => getUser(1),
+    queryFn: () => auth.userData(),
   });
 
   return query;
