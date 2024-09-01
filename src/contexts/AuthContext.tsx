@@ -2,6 +2,8 @@ import {
   createContext,
   ReactNode,
   useContext,
+  useEffect,
+  useState,
 } from 'react';
 
 import { IUser } from '@/interfaces/user';
@@ -10,6 +12,7 @@ import { SignUpData } from '@/validations/signUpUserSchema';
 
 import { useSignIn, useSignOut, useSignUp } from '@/mutations/useUser';
 import { useGetUserData } from '@/queries/useGetUser';
+import { auth } from '@/services/supabase/users/auth';
 
 interface IAuthContextStates {
   user: IUser | null;
@@ -29,7 +32,9 @@ const AuthContext = createContext(
 );
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const { data: user, isLoading: isLoadingUser } = useGetUserData();
+  const [user, setUser] = useState<IUser | null>(null);
+
+  const { data, isLoading: isLoadingUser } = useGetUserData();
   const { mutateAsync: signIn, isPending: isPendingSignIn } = useSignIn();
   const { mutateAsync: signUp, isPending: isPendingSignUp } = useSignUp();
   const { mutateAsync: signOut, isPending: isPendingSignOut } = useSignOut();
@@ -41,6 +46,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const handleSignIn = (params: SignInData) => {
     signIn(params);
   }
+
+  const onLoadUser = (userData: IUser) => {
+    setUser(userData);
+  }
+
+  useEffect(() => {
+    if (data) {
+      onLoadUser(data);
+    }
+
+    const unsubscribe = auth.listemUpdate(onLoadUser);
+
+    return () => unsubscribe();
+  }, [data]);
 
   return (
     <AuthContext.Provider

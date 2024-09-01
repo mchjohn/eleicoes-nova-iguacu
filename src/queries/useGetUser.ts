@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { USER } from '@/constants/queryKeys';
+
 import { auth } from '@/services/supabase/users/auth';
 
 export function useGetUserData() {

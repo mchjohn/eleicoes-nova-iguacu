@@ -66,7 +66,7 @@ export function CardCandidate({ isLoading, candidate, currentVote, isAuthenticat
                   Votando...
                 </>
               ) : (
-                "Votar"
+                currentVote === candidate.id ? "Votado" : "Votar"
               )}
             </Button>
           ) : (
