@@ -7,6 +7,7 @@ import { SignInData } from "@/validations/signInSchema";
 import { SignUpData } from "@/validations/signUpUserSchema";
 
 import { queryClient } from "@/services/reactQuery/query-client";
+import { mayorsSurveyResults } from "@/services/supabase/mutates/mayors/mayors_survey_results";
 import { auth } from "@/services/supabase/users/auth";
 import { updateUser } from "@/services/supabase/users/update";
 import { AuthApiError } from "@supabase/supabase-js";
@@ -46,6 +47,8 @@ export function useSignUp() {
       toast("Conta criada com sucesso", {
         description: "Agora você já pode votar",
       })
+
+      mayorsSurveyResults.incrementTotalVoters();
     },
     onError: () => {
       toast("Não foi possível criar sua conta no momento", {

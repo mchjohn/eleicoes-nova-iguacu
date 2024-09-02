@@ -47,16 +47,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signIn(params);
   }
 
-  const onLoadUser = (userData: IUser) => {
-    setUser(userData);
-  }
-
   useEffect(() => {
     if (data) {
-      onLoadUser(data);
+      setUser(data);
     }
 
-    const unsubscribe = auth.listemUpdate(onLoadUser);
+    const unsubscribe = auth.listemUserChanges(setUser);
 
     return () => unsubscribe();
   }, [data]);

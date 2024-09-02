@@ -4,6 +4,9 @@ class MayorsSurveyResults {
   async incrementTotalVotes() {
     await supabase.rpc('increment_total_votes', { row_id: 1 });
   }
+  async incrementTotalVoters() {
+    await supabase.rpc('increment_total_voters', { row_id: 1 });
+  }
 
   async incrementTotalNullVotes() {
     await supabase.rpc('increment_total_null_votes', { row_id: 1 });
