@@ -7,11 +7,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 
 import { AuthForm } from "../AuthForm";
@@ -27,7 +26,7 @@ type CardCandidateProps = {
 export function CardCandidate({ isLoading, candidate, currentVote, isAuthenticated, handleVote }: CardCandidateProps) {
   return (
     <>
-      <Card className="text-stone-900 md:w-96 md:h-[722px]">
+      <Card className="text-stone-900 md:w-80">
         <CardHeader className="items-center">
           <Avatar className="rounded-sm size-48">
             <AvatarImage src={candidate?.picture} />
@@ -42,15 +41,21 @@ export function CardCandidate({ isLoading, candidate, currentVote, isAuthenticat
 
             <br />
 
+            Número <span className="font-semibold">
+              {candidate?.number}
+            </span>
+
+            <br />
+
             Votos <span className="font-semibold">
               {candidate?.amount_votes}
             </span>
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="items-center text-justify p-2">
+        {/* <CardContent className="items-center text-justify p-2">
           <p className="max-h-64 overflow-auto md:max-h-fit md:h-[340px]">{candidate?.about}</p>
-        </CardContent>
+        </CardContent> */}
 
         <CardFooter className="flex gap-4 justify-center md:mt-auto">
           <Button variant="outline" disabled={isLoading}>Ver mais</Button>
